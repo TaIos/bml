@@ -26,7 +26,7 @@ for c in covs:
 
 fig, axs = plt.subplots(1, 3, subplot_kw=dict(projection='3d'),
                         figsize=(11,3))
-for ax, z in zip(axs, zs):
+for ax, z, c in zip(axs, zs, covs):
 #    rgb = ls.shade(z, cmap=cm.gist_earth, vert_exag=0.1, blend_mode='soft')
     surf = ax.plot_surface(xv, yv, z, rstride=1, cstride=1, cmap=cm.coolwarm,#facecolors=rgb,
                            linewidth=0, antialiased=False, shade=False)
