@@ -45,22 +45,26 @@ class NiG():
     def beta_hat(self):
         """Estimate of theta"""
         return np.dot(self.V, self.xi[1:, 0])
+    Ebeta = beta_hat                             # Alias for compatibility
         
     @property
     def beta_var(self):
         """Variance of beta"""
         return np.diag(self.iG_mean * self.V)
+    var_beta = beta_var                          # Alias for compatibility
 
 
     @property
     def iG_mean(self):
         """Estimate of variance sigma^2"""
         return self.b/(self.a - 1.)
+    Esigma2 = iG_mean                            # Alias for compatibility
 
     @property
     def iG_var(self):
         """Variance of sigma2"""
         return self.b**2 / ((self.a - 1)**2 * (self.a - 2))
+    var_sigma = iG_var                           # Alias for compatibility
         
     @property
     def a(self):
