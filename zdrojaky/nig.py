@@ -64,7 +64,7 @@ class NiG():
     def iG_var(self):
         """Variance of sigma2"""
         return self.b**2 / ((self.a - 1)**2 * (self.a - 2))
-    var_sigma = iG_var                           # Alias for compatibility
+    var_sigma2 = iG_var                           # Alias for compatibility
         
     @property
     def a(self):
