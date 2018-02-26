@@ -135,3 +135,53 @@ plt.show()
 Ebeta_log = np.array(regmodel.Ebeta_log)
 std_beta_log = np.array(regmodel.var_beta_log)
 
+plt.figure(5, figsize=(15, 6))
+plt.subplot(211)
+plt.plot(Ebeta_log[:, 0], label=r'$\hat\beta_1 = \hat v_0$')
+plt.hlines(beta[0], 0, ndat, 'r', label=r'$\beta_1 = v_0$')
+plt.fill_between(np.arange(ndat),
+                 Ebeta_log[:, 0] + 3 * std_beta_log[:, 0],
+                 Ebeta_log[:, 0] - 3 * std_beta_log[:, 0],
+                 color='whitesmoke'
+                 )
+plt.xlim(0)
+plt.ylim(-40, 40)
+
+plt.subplot(212)
+plt.plot(Ebeta_log[:, 1], label=r'$\hat\beta_2 = \hat a$')
+plt.hlines(beta[1], 0, ndat, 'r', label=r'$\beta_2 = a$')
+plt.fill_between(np.arange(ndat),
+                 Ebeta_log[:, 1] + 3 * std_beta_log[:, 1],
+                 Ebeta_log[:, 1] - 3 * std_beta_log[:, 1],
+                 color='whitesmoke'
+                 )
+plt.ylim(-40, 40)
+plt.xlim(0)
+plt.xlabel('t')
+
+plt.figure(6, figsize=(15, 6))
+plt.subplot(211)
+plt.plot(Ebeta_log[:, 0], label=r'$\hat\beta_1 = \hat v_0$')
+plt.hlines(beta[0], 0, ndat, 'r', label=r'$\beta_1 = v_0$')
+plt.fill_between(np.arange(ndat),
+                 Ebeta_log[:, 0] + 3 * std_beta_log[:, 0],
+                 Ebeta_log[:, 0] - 3 * std_beta_log[:, 0],
+                 color='whitesmoke'
+                 )
+plt.ylim(0, 8)
+plt.xlim(0)
+plt.legend()
+plt.savefig('/tmp/l2-regrese-Ebeta.jpg', bbox_inches='tight')
+
+plt.subplot(212)
+plt.plot(Ebeta_log[:, 1], label=r'$\hat\beta_2 = \hat a$')
+plt.hlines(beta[1], 0, ndat, 'r', label=r'$\beta_2 = a$')
+plt.fill_between(np.arange(ndat),
+                 Ebeta_log[:, 1] + 3 * std_beta_log[:, 1],
+                 Ebeta_log[:, 1] - 3 * std_beta_log[:, 1],
+                 color='whitesmoke'
+                 )
+plt.ylim(-.0, 1)
+plt.xlim(0)
+plt.xlabel('t')
+plt.savefig('/tmp/l2-regrese-Ebeta-detail.jpg', bbox_inches='tight')
