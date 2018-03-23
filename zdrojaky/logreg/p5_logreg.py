@@ -30,3 +30,13 @@ for xt, yt in zip(X, y):
     
 #%% Confusion matrix
 CM = ConfusionMatrix(prior.true_vals, prior.binary_preds)
+CM.print_stats()
+
+#%% Plots
+beta_log = np.array(prior.mean_log)
+
+plt.figure(figsize=(8, 4))
+plt.plot(prior.brier_score_log)
+plt.xlabel('t')
+plt.ylabel('Brier score')
+plt.savefig('/tmp/l5-brier.png', bbox_inches='tight'p)
