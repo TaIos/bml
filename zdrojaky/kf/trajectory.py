@@ -6,9 +6,9 @@ class trajectory():
     def __init__(self, seed=123, ndat=100):
         self.ndat = ndat
         self.seed = seed
-        self.q = 2.
-        self.dt = .1
-        self.r = .5
+        self.q = .5
+        self.dt = 1
+        self.r = 3.
         self.A = np.array([[1, 0, self.dt, 0],
                            [0, 1, 0, self.dt],
                            [0, 0, 1,  0],
