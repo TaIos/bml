@@ -81,7 +81,7 @@ for i in range(len(steps)):
     plt.plot(y_noisy[:steps[i]-1], 'b')
     plt.xlabel('t')
     plt.ylabel(r'$y_t$')
-plt.savefig('/tmp/l2-predikce.jpg', bbox_inches='tight')
+plt.savefig('/tmp/l2-predikce.png', bbox_inches='tight')
 plt.show()
 
 #%%
@@ -100,7 +100,7 @@ plt.xlabel('t')
 plt.legend()
 plt.xlim(xmin=0)
 plt.ylim(-2500, 2500)
-plt.savefig('/tmp/l2-regrese-Esigma2.jpg')
+plt.savefig('/tmp/l2-regrese-Esigma2.png')
 plt.show()
 
 #%%
@@ -128,7 +128,7 @@ plt.fill_between(
          color='blue'
         )
 plt.legend()
-plt.savefig('/tmp/l2-sigmapas.jpg', bbox_inches='tight')
+plt.savefig('/tmp/l2-sigmapas.png', bbox_inches='tight')
 plt.show()
 
 #%%
@@ -144,9 +144,10 @@ plt.fill_between(np.arange(ndat),
                  Ebeta_log[:, 0] - 3 * std_beta_log[:, 0],
                  color='whitesmoke'
                  )
+plt.legend()
 plt.xlim(0)
 plt.ylim(-40, 40)
-
+#plt.xlabel('t')
 plt.subplot(212)
 plt.plot(Ebeta_log[:, 1], label=r'$\hat\beta_2 = \hat a$')
 plt.hlines(beta[1], 0, ndat, 'r', label=r'$\beta_2 = a$')
@@ -158,8 +159,12 @@ plt.fill_between(np.arange(ndat),
 plt.ylim(-40, 40)
 plt.xlim(0)
 plt.xlabel('t')
+plt.legend()
+plt.savefig('/tmp/betas.png')
+plt.close()
 
-plt.figure(6, figsize=(15, 6))
+
+plt.figure(5, figsize=(15, 6))
 plt.subplot(211)
 plt.plot(Ebeta_log[:, 0], label=r'$\hat\beta_1 = \hat v_0$')
 plt.hlines(beta[0], 0, ndat, 'r', label=r'$\beta_1 = v_0$')
@@ -168,11 +173,10 @@ plt.fill_between(np.arange(ndat),
                  Ebeta_log[:, 0] - 3 * std_beta_log[:, 0],
                  color='whitesmoke'
                  )
-plt.ylim(0, 8)
-plt.xlim(0)
 plt.legend()
-plt.savefig('/tmp/l2-regrese-Ebeta.jpg', bbox_inches='tight')
-
+plt.xlim(0)
+plt.ylim(0, 10)
+#plt.xlabel('t')
 plt.subplot(212)
 plt.plot(Ebeta_log[:, 1], label=r'$\hat\beta_2 = \hat a$')
 plt.hlines(beta[1], 0, ndat, 'r', label=r'$\beta_2 = a$')
@@ -181,7 +185,46 @@ plt.fill_between(np.arange(ndat),
                  Ebeta_log[:, 1] - 3 * std_beta_log[:, 1],
                  color='whitesmoke'
                  )
-plt.ylim(-.0, 1)
+plt.ylim(-3, 3)
 plt.xlim(0)
 plt.xlabel('t')
-plt.savefig('/tmp/l2-regrese-Ebeta-detail.jpg', bbox_inches='tight')
+plt.legend()
+plt.savefig('/tmp/betas-detail.png')
+
+
+#plt.figure(6, figsize=(15, 6))
+#plt.subplot(211)
+#plt.plot(Ebeta_log[:, 0], label=r'$\hat\beta_1 = \hat v_0$')
+#plt.hlines(beta[0], 0, ndat, 'r', label=r'$\beta_1 = v_0$')
+#plt.fill_between(np.arange(ndat),
+                 #Ebeta_log[:, 0] + 3 * std_beta_log[:, 0],
+                 #Ebeta_log[:, 0] - 3 * std_beta_log[:, 0],
+                 #color='whitesmoke'
+                 #)
+#plt.xlim(0)
+#plt.legend()
+#plt.subplot(212)
+#plt.plot(Ebeta_log[:, 1], label=r'$\hat\beta_2 = \hat a_0$')
+#plt.hlines(beta[1], 0, ndat, 'r', label=r'$\beta_2 = a_0$')
+#plt.fill_between(np.arange(ndat),
+                 #Ebeta_log[:, 1] + 3 * std_beta_log[:, 1],
+                 #Ebeta_log[:, 1] - 3 * std_beta_log[:, 1],
+                 #color='whitesmoke'
+                 #)
+#plt.xlim(0)
+#plt.legend()
+#plt.savefig('/tmp/l2-regrese-Ebeta.png', bbox_inches='tight')
+
+
+#plt.subplot(212)
+#plt.plot(Ebeta_log[:, 1], label=r'$\hat\beta_2 = \hat a$')
+#plt.hlines(beta[1], 0, ndat, 'r', label=r'$\beta_2 = a$')
+#plt.fill_between(np.arange(ndat),
+                 #Ebeta_log[:, 1] + 3 * std_beta_log[:, 1],
+                 #Ebeta_log[:, 1] - 3 * std_beta_log[:, 1],
+                 #color='whitesmoke'
+                 #)
+#plt.ylim(-.0, 1)
+#plt.xlim(0)
+#plt.xlabel('t')
+#plt.savefig('/tmp/l2-regrese-Ebeta-detail.png', bbox_inches='tight')
