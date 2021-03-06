@@ -4,12 +4,12 @@ class KF():
     def __init__(self, A, B, H, R, Q):
         self.A = A
         self.B = B
-#        self.H = H
         self.H = np.atleast_2d(H)
         self.Q = Q
         self.P = np.eye(A.shape[0]) * 1000.
         self.x = np.zeros(A.shape[0])
         self.log_x = []
+        self.log_P = []
         self.xi = np.zeros(np.asarray(self.P.shape) + 1)
         if np.isscalar(R):
             self.Rinv = 1/R
@@ -39,6 +39,7 @@ class KF():
         
     def log(self):
         self.log_x.append(self.x.copy())
+        self.log_P.append(self.P.diagonal())
 
 
 #--------------
