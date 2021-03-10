@@ -13,7 +13,7 @@ class trajectory():
                            [0, 1, 0, self.dt],
                            [0, 0, 1,  0],
                            [0, 0, 0,  1]])
-        self.Q = self.q * np.array([[self.dt**3/3, 0      , self.dt**2/2, 0      ],
+        self.Q = self.q**2 * np.array([[self.dt**3/3, 0      , self.dt**2/2, 0      ],
                                [0,       self.dt**3/3, 0,       self.dt**2/2],
                                [self.dt**2/2, 0,       self.dt,      0      ],
                                [0,       self.dt**2/2, 0,       self.dt     ]])
